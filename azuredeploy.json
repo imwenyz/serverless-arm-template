@@ -87,7 +87,7 @@
                 "tenantId": "[subscription().tenantId]",
                 "accessPolicies": [
                 {
-                    "objectId": "[reference(resourceId('Microsoft.Web/sites', parameters('functionAppName'))).identity.principalId]",
+                    "objectId": "[reference(resourceId('Microsoft.Web/sites', parameters('functionAppName')), '2019-08-01', 'Full').identity.principalId]",
                     "tenantId": "[subscription().tenantId]",
                     "permissions": {
                         "secrets": ["list", "get"]      
