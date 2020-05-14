@@ -18,7 +18,7 @@
         },
         "storageAccountName": {
             "type": "String",
-            "defaultValue": "[concat('funcstore', uniqueString(resourceGroup().id))]",
+            "defaultValue": "[concat('funcapp', uniqueString(resourceGroup().id))]",
             "metadata": {
                 "description": "Storage account for the function app"
             }
@@ -29,7 +29,7 @@
         },
         "linuxFxVersion": {
             "type": "String",
-            "defaultValue": "Python|3.8",
+            "defaultValue": "Python|3.7",
             "metadata": {
                 "description": "Linux App Framework and version"
             }

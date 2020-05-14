@@ -1,0 +1,15 @@
+{
+  "$schema": "https://aka.ms/azure-quickstart-templates-metadata-schema#",
+  "itemDisplayName": "Empty Function App",
+  "description": "MCE Azure Infra",
+  "summary": "MCE Azure Infra",
+  "githubUsername": "imwenyz",
+  "dateUpdated": "2020-05-14",
+  "type": "QuickStart",
+  "tags": {
+      "subscriptiontype": "Free",
+      "resource":"App Service Plan, Function, DataLake Storage Gen1, Storage Account, Key Vault",
+      "os": "serverless",
+      "cost": "$0"
+  }
+}
