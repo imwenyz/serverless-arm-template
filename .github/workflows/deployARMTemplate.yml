@@ -27,4 +27,4 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az deployment group create --resource-group $RESOURCE_GROUP --template-file $TEMPLATE_FILE_PATH
+            az deployment group create --resource-group $RESOURCE_GROUP --template-file $TEMPLATE_FILE_PATH --mode Complete

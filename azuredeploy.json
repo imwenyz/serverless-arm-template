@@ -86,13 +86,13 @@
                 "enabledForTemplateDeployment": true,
                 "tenantId": "[subscription().tenantId]",
                 "accessPolicies": [
-                {
-                    "objectId": "[reference(resourceId('Microsoft.Web/sites', parameters('functionAppName')), '2019-08-01', 'Full').identity.principalId]",
-                    "tenantId": "[subscription().tenantId]",
-                    "permissions": {
-                        "secrets": ["list", "get"]
+                    {
+                        "objectId": "[reference(resourceId('Microsoft.Web/sites', parameters('functionAppName')), '2019-08-01', 'Full').identity.principalId]",
+                        "tenantId": "[subscription().tenantId]",
+                        "permissions": {
+                            "secrets": ["list", "get"]
+                        }
                     }
-                }
                 ],
                 "sku": {
                     "name": "Standard",
