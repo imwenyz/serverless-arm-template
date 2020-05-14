@@ -62,7 +62,7 @@
             "location": "[parameters('location')]",
             "properties": {
                 "firewallState": "Disabled",
-                "firewallAllowAzureIps": "Disabled",
+                "firewallAllowAzureIps": "Enabled",
                 "firewallRules": [],
                 "virtualNetworkRules": [],
                 "trustedIdProviderState": "Disabled",
@@ -90,7 +90,7 @@
                     "objectId": "[reference(resourceId('Microsoft.Web/sites', parameters('functionAppName')), '2019-08-01', 'Full').identity.principalId]",
                     "tenantId": "[subscription().tenantId]",
                     "permissions": {
-                        "secrets": ["list", "get"]      
+                        "secrets": ["list", "get"]
                     }
                 }
                 ],
