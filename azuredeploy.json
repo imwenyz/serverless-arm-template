@@ -78,6 +78,9 @@
                 "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
                 "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
             ],
+            "identity": {
+                "type": "SystemAssigned"
+            },
             "properties": {
                 "name": "[parameters('functionAppName')]",
                 "siteConfig": {
