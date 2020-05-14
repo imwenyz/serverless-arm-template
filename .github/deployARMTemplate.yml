@@ -1,0 +1,30 @@
+name: Deploy ARM Template
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/deployARMTemplate.yml"
+      - "azuredeploy.json"
+
+jobs:
+  deploy-azure-resource-manager-template:
+    env:
+      RESOURCE_GROUP: rg-wen-infra
+      TEMPLATE_FILE_PATH: azuredeploy.json
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@master
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy ARM Template
+        uses: azure/CLI@v1
+        with:
+          inlineScript: |
+            az deployment group create --resource-group $RESOURCE_GROUP --template-file $TEMPLATE_FILE_PATH
