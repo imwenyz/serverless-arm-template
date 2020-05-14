@@ -11,6 +11,9 @@
         "storageAccountName": {
             "value": "GEN-UNIQUE"
         },
+        "keyVaultName": {
+            "value": "GEN-UNIQUE"
+        },
         "storageAccountType": {
             "value": "Standard_LRS"
         },

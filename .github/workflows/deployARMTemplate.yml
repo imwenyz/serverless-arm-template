@@ -6,13 +6,13 @@ on:
       - master
     paths:
       - ".github/workflows/deployARMTemplate.yml"
-      - "azuredeploy.json"
+      - "infra/azuredeploy.json"
 
 jobs:
   deploy-azure-resource-manager-template:
     env:
       RESOURCE_GROUP: rg-wen-infra
-      TEMPLATE_FILE_PATH: azuredeploy.json
+      TEMPLATE_FILE_PATH: infra/azuredeploy.json
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
@@ -27,4 +27,4 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az deployment group create --resource-group $RESOURCE_GROUP --template-file $TEMPLATE_FILE_PATH --mode Complete
+            az deployment group create --resource-group $RESOURCE_GROUP --template-file $TEMPLATE_FILE_PATH
