@@ -2,6 +2,13 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "keyVaultName": {
+            "type": "string",
+            "defaultValue": "[concat('vault-', uniqueString(resourceGroup().id))]",
+            "metadata": {
+                "description": "Name of the Key Vault, universally unique. <datalakeName>.vault.azure.net"
+            }
+        },
         "datalakeName": {
             "type": "string",
             "defaultValue": "[concat('datalake', uniqueString(resourceGroup().id))]",
@@ -65,6 +72,36 @@
                     "type": "ServiceManaged"
                 },
                 "newTier": "Consumption"
+            }
+        },
+        {
+            "type": "Microsoft.KeyVault/vaults",
+            "name": "[parameters('keyVaultName')]",
+            "apiVersion": "2018-02-14",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
+            ],
+            "properties": {
+                "enabledForTemplateDeployment": true,
+                "tenantId": "[subscription().tenantId]",
+                "accessPolicies": [
+                {
+                    "objectId": "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]",
+                    "tenantId": "[subscription().tenantId]",
+                    "permissions": {
+                        "secrets": ["list", "get"]      
+                    }
+                }
+                ],
+                "sku": {
+                    "name": "Standard",
+                    "family": "A"
+                },
+                "networkAcls": {
+                    "defaultAction": "Allow",
+                    "bypass": "AzureServices"
+                }
             }
         },
         {
