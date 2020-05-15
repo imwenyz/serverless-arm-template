@@ -1,1 +1,2 @@
 # Modify me to trigger infra workflow
+# Don't panic, it will be removed eventually
