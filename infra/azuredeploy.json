@@ -49,7 +49,7 @@
             }
         }
     },
-     "variables": {
+    "variables": {
         "appServicePlanName": "[concat('appServicePlan-', parameters('functionAppName'))]",
         "appInsightsName": "[parameters('functionAppName')]",
         "storageAccountid": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
@@ -104,6 +104,18 @@
                     "defaultAction": "Allow",
                     "bypass": "AzureServices"
                 }
+            }
+        },
+        {
+            "type": "Microsoft.KeyVault/vaults/secrets",
+            "name": "[concat(parameters('keyVaultName'), '/', parameters('secretName'))]",
+            "apiVersion": "2019-09-01",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.KeyVault/vaults/', parameters('keyVaultName'))]"
+            ],
+            "properties": {
+                "value": "[parameters('secretValue')]"
             }
         },
         {
