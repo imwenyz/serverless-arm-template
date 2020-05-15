@@ -6,17 +6,19 @@ on:
       - master
     paths:
       - ".github/workflows/deployARMTemplate.yml"
+      - ".github/workflows/workflow-trigger.txt"
       - "infra/azuredeploy.json"
+
+env:
+  RESOURCE_GROUP: rg-wen-infra
+  TEMPLATE_FILE_PATH: infra/azuredeploy.json
 
 jobs:
   deploy-azure-resource-manager-template:
-    env:
-      RESOURCE_GROUP: rg-wen-infra
-      TEMPLATE_FILE_PATH: infra/azuredeploy.json
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: Login to Azure
         uses: azure/login@v1

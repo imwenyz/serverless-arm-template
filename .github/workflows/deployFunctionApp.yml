@@ -2,11 +2,11 @@ name: Deploy Python project to Azure Function App
 
 on:
   push:
-  branches:
-    - master
-  paths:
-    - ".github/workflows/deployFunctionApp.yml"
-    - "functions/**"
+    branches:
+      - master
+    paths:
+      - ".github/workflows/deployFunctionApp.yml"
+      - "functions/**"
 
 # CONFIGURATION
 # For help, go to https://github.com/Azure/Actions
