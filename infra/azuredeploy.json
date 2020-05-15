@@ -107,18 +107,6 @@
             }
         },
         {
-            "type": "Microsoft.KeyVault/vaults/secrets",
-            "name": "[concat(parameters('keyVaultName'), '/', parameters('secretName'))]",
-            "apiVersion": "2019-09-01",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.KeyVault/vaults/', parameters('keyVaultName'))]"
-            ],
-            "properties": {
-                "value": "[parameters('secretValue')]"
-            }
-        },
-        {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2019-08-01",
             "name": "[parameters('functionAppName')]",
