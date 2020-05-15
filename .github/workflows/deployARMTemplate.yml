@@ -6,7 +6,7 @@ on:
       - master
     paths:
       - ".github/workflows/deployARMTemplate.yml"
-      - ".github/workflows/workflow-trigger.txt"
+      - "infra/workflow-trigger.txt"
       - "infra/azuredeploy.json"
 
 env:
