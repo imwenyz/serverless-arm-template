@@ -23,7 +23,7 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS_MCE }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Deploy ARM Template
         uses: azure/CLI@v1
