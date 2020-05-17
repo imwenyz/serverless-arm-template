@@ -76,17 +76,15 @@
             }
         },
         {
-            "type": "Microsoft.Authorization/roleAssignments",
+            "type": "Microsoft.DataLakeStore/Accounts/providers/roleAssignments",
             "apiVersion": "2018-09-01-preview",
-            "name": "[guid(resourceId('Microsoft.DataLakeStore/accounts', parameters('datalakeName')))]",
+            "name": "[concat('Microsoft.Authorization/roleAssignments/', guid(parameters('datalakeName')))]",
             "dependsOn": [
-                "[resourceId('Microsoft.DataLakeStore/accounts', parameters('datalakeName'))]"
+                "[resourceId('Microsoft.DataLakeStore/Accounts', parameters('datalakeName'))]"
             ],
             "properties": {
-                "roleDefinitionId": "[variables('contributorRoleDefinitionId')]",
-                "principalId": "[reference(resourceId('Microsoft.Web/sites', parameters('functionAppName')), '2019-08-01', 'Full').identity.principalId]",
-                "scope": "[resourceId('Microsoft.DataLakeStore/accounts', parameters('datalakeName'))]",
-                "principalType": "ServicePrincipal"
+				"principalId": "[reference(resourceId('Microsoft.Web/sites', parameters('functionAppName')), '2019-08-01', 'Full').identity.principalId]",
+                "roleDefinitionId": "[variables('contributorRoleDefinitionId')]"
             }
         },
         {
