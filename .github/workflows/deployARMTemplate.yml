@@ -10,7 +10,7 @@ on:
       - "infra/azuredeploy.json"
 
 env:
-  RESOURCE_GROUP: rg-mcereporting-weu
+  RESOURCE_GROUP: rg-wen-infra
   TEMPLATE_FILE_PATH: infra/azuredeploy.json
 
 jobs:
