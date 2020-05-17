@@ -76,11 +76,11 @@
             }
         },
         {
-            "type": "Microsoft.DataLakeStore/Accounts/providers/roleAssignments",
+            "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
             "apiVersion": "2018-09-01-preview",
-            "name": "[concat('Microsoft.Authorization/roleAssignments/', guid(parameters('datalakeName')))]",
+            "name": "[concat(parameters('datalakeName'), '/roleAssignments/', guid(parameters('datalakeName')))]",
             "dependsOn": [
-                "[resourceId('Microsoft.DataLakeStore/Accounts', parameters('datalakeName'))]"
+                "[resourceId('Microsoft.DataLakeStore/accounts', parameters('datalakeName'))]"
             ],
             "properties": {
 				"principalId": "[reference(resourceId('Microsoft.Web/sites', parameters('functionAppName')), '2019-08-01', 'Full').identity.principalId]",
