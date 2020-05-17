@@ -85,7 +85,8 @@
             ],
             "properties": {
                 "principalId": "[reference(resourceId('Microsoft.Web/sites', parameters('functionAppName')), '2019-08-01', 'Full').identity.principalId]",
-                "roleDefinitionId": "[variables('contributorRoleDefinitionId')]"
+                "roleDefinitionId": "[variables('contributorRoleDefinitionId')]",
+                "principalType": "ServicePrincipal"
             }
         },
         {
