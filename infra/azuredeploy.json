@@ -78,7 +78,7 @@
         {
             "type": "Microsoft.Authorization/roleAssignments",
             "apiVersion": "2018-09-01-preview",
-            "name": "funcapp-datalake-role",
+            "name": "[guid(resourceId('Microsoft.DataLakeStore/accounts', parameters('datalakeName')))]",
             "dependsOn": [
                 "[resourceId('Microsoft.DataLakeStore/accounts', parameters('datalakeName'))]"
             ],
