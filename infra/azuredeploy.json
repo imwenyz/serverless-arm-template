@@ -80,7 +80,8 @@
             "apiVersion": "2018-09-01-preview",
             "name": "[concat(parameters('datalakeName'), '/Microsoft.Authorization/', guid(parameters('datalakeName')))]",
             "dependsOn": [
-                "[resourceId('Microsoft.DataLakeStore/accounts', parameters('datalakeName'))]"
+                "[resourceId('Microsoft.DataLakeStore/accounts', parameters('datalakeName'))]",
+                "[reference(resourceId('Microsoft.Web/sites', parameters('functionAppName')))]"
             ],
             "properties": {
                 "principalId": "[reference(resourceId('Microsoft.Web/sites', parameters('functionAppName')), '2019-08-01', 'Full').identity.principalId]",
