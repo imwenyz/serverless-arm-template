@@ -36,7 +36,7 @@
         },
         "linuxFxVersion": {
             "type": "String",
-            "defaultValue": "Python|3.7",
+            "defaultValue": "Python|3.8",
             "metadata": {
                 "description": "Linux App Framework and version"
             }
